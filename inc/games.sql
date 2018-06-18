@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 18, 2018 at 05:16 PM
+-- Generation Time: Jun 18, 2018 at 05:32 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -34,16 +34,20 @@ CREATE TABLE `games` (
   `platform` varchar(35) DEFAULT NULL,
   `release_date` varchar(10) DEFAULT NULL,
   `description` varchar(502) DEFAULT NULL,
+  `user_rating` int(1) DEFAULT NULL,
+  `region` varchar(13) DEFAULT NULL,
   `labels` varchar(15) DEFAULT NULL,
-  `user_rating` varchar(1) DEFAULT NULL
+  `genres` varchar(89) DEFAULT NULL,
+  `developers` varchar(206) DEFAULT NULL,
+  `publishers` varchar(158) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `games`
 --
 
-INSERT INTO `games` (`id`, `name`, `platform`, `release_date`, `description`, `labels`, `user_rating`) VALUES
-(1, '140', 'PC', '10/15/2013', '', 'Unplayed', '0');
+INSERT INTO `games` (`id`, `name`, `platform`, `release_date`, `description`, `user_rating`, `region`, `labels`, `genres`, `developers`, `publishers`) VALUES
+(1, '100% Orange Juice', 'PC', '8/14/2009', '100% Orange Juice is a goal-oriented boardgame played by OrangeJuice\'s all-star cast including characters from Acceleration of Suguri, Flying Red Barrel: A Diary of Little Aviator, Sora, and QP Shooting.  This is a world where dogs, people and machines fly through the air. In that world, a small patch of darkness was born. Infinitesimal at first, it gradually began to envelope everything...  A youth named Kai, led by the mysterious life form known as Marie Poppo, begins a journey that will span...', 0, '', 'Unplayed', 'Indie, Strategy, Turn-based strategy (TBS)', 'Orange_Juice', 'Fruitbat Factory, Orange_Juice');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +67,7 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=614;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=682;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

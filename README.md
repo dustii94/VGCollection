@@ -13,3 +13,16 @@ Your database should have a table that looks something like this:
 | 2 | game2 | 2/3/2017  | long | 9 | JP | beaten | rpg | dev2 | pub2 |
 
 A sample SQL file is included in case you want to import such a table to your database and save some time. It includes one game ([140, to be exact](https://store.steampowered.com/app/242820/140/)) as an example. Please feel free to play around with this table.
+
+## Credentials (Example)
+What I did to secure my database was create a small config.ini file one level up of the project's root directory where I store my credentials for accessing the database. For example:
+
+```
+[database]
+host = localhost
+username = root
+password = root
+dbname = games
+```
+
+(Please don't ever use a username or password like this for a database that you plan on actually releasing)

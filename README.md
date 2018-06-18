@@ -5,7 +5,7 @@ A simple web app that helps keep track of collections of any kind (such as video
 You should have a working local server with access to some kind of MySQL database. I personally use MAMP Pro.
 
 ### What the database should look like
-Your database should have a sample table that looks something like this:
+Your database should have a table that looks something like this:
 
 | id  | name | release_date  | description | user_rating  | region | labels | genres | developers | publishers |
 | --- | ---- | ------------  | ----------- | ------------ | ------ | ------ | ------ | ---------- | ---------- |

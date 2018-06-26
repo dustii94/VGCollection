@@ -12,7 +12,7 @@ function full_game_list_array($limit = null, $offset = 0, $filter = null){
 
   // Run query
   try{
-    $sql = "SELECT id, name, platform, release_date, description, labels, user_rating
+    $sql = "SELECT id, name, platform, release_date, publishers, labels, user_rating
             FROM games";
     $where = filter($filter);
 
@@ -169,7 +169,7 @@ function get_game($game_id){
 function search_game_array($search, $limit = null, $offset = 0){
   include "connection.php";
   try{
-    $sql = "SELECT DISTINCT id, name, platform, release_date, description, labels, user_rating
+    $sql = "SELECT DISTINCT id, name, platform, release_date, publishers, labels, user_rating
           FROM games
           WHERE name LIKE ?";
     $results = $db->prepare($sql);
@@ -267,7 +267,7 @@ function random_game_array(){
   // Run query
   try{
     $results = $db->query(
-      "SELECT id, name, platform, release_date, description, labels, user_rating
+      "SELECT id, name, platform, release_date, publishers, labels, user_rating
       FROM games
       ORDER BY RAND()
       LIMIT 4"
@@ -298,24 +298,18 @@ function get_item_html($result) {
                 <th class='name header'>Name</th>
                 <th class='platform header'>Platform</th>
                 <th class='release header'>Release Date</th>
-                <th class='desc header'>Short Description</th>
+                <th class='desc header'>Publisher(s)</th>
                 <th class='progress header'>Progress</th>
                 <th class='score header'>User Score</th>
                 <th colspan='2'>More</th>
               </tr>";
         foreach($result as $row) {
-          $short_desc = $row["description"];
-          if(isset($short_desc[250])){
-            $pos = strpos($short_desc, " ", 250);
-            $short_desc = substr($short_desc, 0, $pos) . "...";
-          }
-
           $output .= "
                   <tr class='game'>
                     <td class='name row'>" . $row["name"] . "</td>
                     <td class='platform row'>" . $row["platform"] . "</td>
                     <td class='release row'>" . $row["release_date"] . "</td>
-                    <td class='desc row'>" . $short_desc . "</td>
+                    <td class='desc row'>" . $row["publishers"] . "</td>
                     <td class='progress row'>" . $row["labels"] . "</td>
                     <td class='score row'>" . $row["user_rating"] . "</td>
                     <td class='details row'><a href='game.php?id=" . $row["id"] . "'>Details</a></td>
